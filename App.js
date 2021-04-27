@@ -4,18 +4,22 @@ import { createStackNavigator } from 'react-navigation-stack';
 import IndexScreen from './src/screens/IndexScreen';
 import DetailScreen from './src/screens/DetailScreen';
 import {Provider} from './src/context/VaccineContext';
+import LocationScreen from './src/screens/LocationScreen';
 
 
 const navigator = createStackNavigator({
     Index: IndexScreen,
-    Detail: DetailScreen}, 
+    Detail: DetailScreen,
+    Location: LocationScreen
+  }, 
     {
       initialRouteName: 'Index',
       defaultNavigationOptions: {
-        title: 'ceen',
+        title: 'Ceen',
         headerStyle: {
-          backgroundColor: '#CAEAF2'}
-        },
+          backgroundColor: '#CAEAF2',
+          height: 100,
+        }},
     });
 
 const App = createAppContainer(navigator);
