@@ -7,14 +7,16 @@ import {Provider} from './src/context/VaccineContext';
 
 
 const navigator = createStackNavigator({
-  Index: IndexScreen,
-  Detail: DetailScreen
-}, {
-  initialRouteName: 'Index',
-  defaultNavigationOptions: {
-    title: 'Ceen'
-  }
-});
+    Index: IndexScreen,
+    Detail: DetailScreen}, 
+    {
+      initialRouteName: 'Index',
+      defaultNavigationOptions: {
+        title: 'ceen',
+        headerStyle: {
+          backgroundColor: '#CAEAF2'}
+        },
+    });
 
 const App = createAppContainer(navigator);
 
