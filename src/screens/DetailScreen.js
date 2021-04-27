@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {Context} from '../context/VaccineContext';
 import {View, Text, StyleSheet, TouchableOpacity, FlatList, Image} from 'react-native';
+import {Icon} from '@expo/vector-icons';
 
 const DetailScreen = ({navigation}) => {
     const {state} = useContext(Context);
@@ -14,6 +15,9 @@ const DetailScreen = ({navigation}) => {
         { key:2,
             name: 'user2',
         content : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '},
+        { key:3,
+            name: 'user3',
+        content : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor '},
 
     ];
 
@@ -22,16 +26,16 @@ const DetailScreen = ({navigation}) => {
         <View style={{alignItems: 'center'}}>
             <View style={styles.info_box}>
                 <View style={styles.info_header}>
-                    <Text style={{textAlign: 'center', padding: 5}}>ข้อมูล</Text>
+                    <Text style={{textAlign: 'center', padding: 5, letterSpacing:0.5}}>ข้อมูล</Text>
                 </View>
-                <Text> description {vaccine.description}</Text>
-                <Text>ชื่อวัคซีน: {vaccine.name}</Text>
-                <Text>ผู้พัฒนา: {vaccine.developer}</Text>
-                <Text>ประสิทธิภาพ: {vaccine.performance} %</Text>
-                <Text>ราคาเฉลี่ยต่อโดส: {vaccine.average_per_dose}</Text>
+                <Text style={styles.content}>ชื่อวัคซีน: {vaccine.name}</Text>
+                <Text style={styles.content}>คำอธิบาย: {vaccine.description}</Text>
+                <Text style={styles.content}>ผู้พัฒนา: {vaccine.developer}</Text>
+                <Text style={styles.content}>ประสิทธิภาพ: {vaccine.performance} %</Text>
+                <Text style={styles.content}>ราคาเฉลี่ยต่อโดส: {vaccine.average_per_dose}</Text>
             </View>
         </View>
-        <Text style={styles.header}>รีวิว</Text>
+        <Text style={styles.header}>Review</Text>
         <FlatList
             data = {review}
             renderItem = {({ item }) => {
@@ -40,7 +44,7 @@ const DetailScreen = ({navigation}) => {
                         <View style={styles.review_box}>
                             <Image source={{ uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/old_logo.png'}} 
                             style={styles.user_pic}></Image>
-                            <Text style={{paddingLeft: 10, flex: 1, flexWrap: 'wrap'}}>{item.content}</Text>
+                            <Text style={{paddingLeft: 10, flex: 1, flexWrap: 'wrap', letterSpacing: 0.7}}>{item.content}</Text>
                         </View>
                     </View>
                 );
@@ -67,8 +71,8 @@ const styles = StyleSheet.create({
         fontSize:22,
         paddingTop: 20,
         paddingBottom: 12,
-        paddingHorizontal: 65
-
+        paddingHorizontal: 50,
+        letterSpacing: 0.7
     },
     info_header:{
         width: 131,
@@ -76,6 +80,9 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: '#E2FFE9',
         fontSize: 14,
+    },
+    content:{
+        letterSpacing: 0.5
     },
     info_box: {
         justifyContent: 'space-between',
@@ -94,7 +101,7 @@ const styles = StyleSheet.create({
         width: 309,
         paddingVertical: 20,
         paddingHorizontal: 10,
-        marginTop: 24,
+        marginTop: 22,
         backgroundColor: 'white',
         borderRadius: 20,
         fontSize: 12,
