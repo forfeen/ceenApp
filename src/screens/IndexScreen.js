@@ -25,7 +25,7 @@ const IndexScreen = ({navigation}) => {
             <View style={styles.status}>
                 <Text padding>status</Text>
             </View> */}
-            <Text style={styles.header}>วัคซีนทั้งหมด</Text>
+            <Text style={styles.header}>Vaccines</Text>
                 <FlatList 
                     data={state}
                     keyExtractor={(vaccine) => vaccine.name}
@@ -53,10 +53,11 @@ const styles = StyleSheet.create({
     },
     header:{
         // fontFamily:'Inter-SemiBold',
-        fontSize:18,
-        paddingTop: 20,
+        fontSize:20,
+        paddingTop: 40,
         paddingBottom: 12,
-        paddingHorizontal: 50
+        paddingHorizontal: 40,
+        letterSpacing: 0.5
 
     },
     status: {
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: 309,
-        height: 79,
+        height: 85,
         paddingVertical: 20,
         paddingHorizontal: 30,
         marginTop: 24,
@@ -101,7 +102,8 @@ const styles = StyleSheet.create({
         elevation: 3
     },
     title: {
-        fontSize: 18
+        fontSize: 18,
+        letterSpacing: 0.75
     },
     icon: {
         fontSize: 24
